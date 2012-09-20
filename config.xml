@@ -10,6 +10,8 @@
 <preference name="android-maxSdkVersion" value="11" />
 <preference name="orientation" value="landscape" />
 <preference name="fullscreen" value="true" />
+<preference name="stay-in-webview" value="true" />
+
 
 <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
 <access origin="http://ixpdev.smartsite.seneca.intern/mgr/manager" ></access>
