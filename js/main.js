@@ -30,7 +30,7 @@
     
     function loadSeneca()
 	{
-		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern/Mgr/Add-Item");
+		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern");
 		showPage("other");
 	}
 	function addItem()
@@ -40,12 +40,12 @@
 	}
 	function editItem()
 	{
-		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern/Mgr/Add-Item");
+		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern/Mgr/News-Library.mvc/select");
 		showPage("other");
 	}
 	function loadExtern()
 	{
-		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern/Mgr/Add-Item");
+		window.localStorage.setItem("url", "http://ixpdev.smartsite.seneca.intern/Mgr/Ready-For-Activation.mvc/select");
 		showPage("other");
 	}
 	function loadExternalBrowser()
