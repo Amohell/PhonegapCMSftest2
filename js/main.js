@@ -18,10 +18,10 @@
    		if(myframe !== null)
 		{
   		  if(myframe.src){
-   		  myframe.src = "file:///android_asset/www/Loading/Loading.html"; }
+   		  myframe.src = "Loading/Loading.html"; }
    		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
-          myframe.contentWindow.location = "file:///android_asset/www/Loading/Loading.html"; }
-    		else{ myframe.setAttribute('src', "file:///android_asset/www/Loading/Loading.html"); }
+          myframe.contentWindow.location = "Loading.html"; }
+    		else{ myframe.setAttribute('src', "Loading/Loading.html"); }
 		}		
   	//	  window.frames['webFrame'].document.location.href = "http://google.nl";
 
@@ -334,18 +334,17 @@ function redirect ()
 }
 function go_now ()   
 { 
-	document.getElementById('nimbleLoader').style.display="none";
-	document.getElementById('checkbox').style.display="block;";
 	var url = window.localStorage.getItem("url");
-	var myframe = document.getElementById("webFrame");
-   		if(myframe !== null)
-		{
-  		  if(myframe.src){
-   		  myframe.src = url; }
-   		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
-          myframe.contentWindow.location = url; }
-    		else{ myframe.setAttribute('src', url); }
-		}	
+	 window.location = url;
+//	var myframe = document.getElementById("webFrame");
+  // 		if(myframe !== null)
+//		{
+  //		  if(myframe.src){
+   //		  myframe.src = "http://tweakers.net;" }
+   //		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
+   //       myframe.contentWindow.location = "http://tweakers.net"; }
+   // 		else{ myframe.setAttribute("http://tweakers.net", url); }
+	//	}	
 
 	//	window.plugins.childBrowser.showWebPage(url,
    //   { showLocationBar: false }); 
@@ -359,7 +358,5 @@ function noStay()
 }
 function yesBack()
 {
-	document.getElementById('nimbleLoader').style.display="block";
-	document.getElementById('checkbox').style.display="none;";
 	window.location.href="file:///android_asset/www/index.html";
 }
