@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>TestforCMS</title>
+    	<link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"> 
+    	<script src="js/main.js" charset=""UTF-8" "></script>
+		
+		
+    	 
+    	<script src="childbrowser.js"></script>
+    	<link rel="stylesheet" href="js/jquery.mobile-1.0.min.css" />
+    		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    		<script src="js/jquery.mobile-1.0.min.js"></script>
+		
+		
+		<script type="text/javascript" charset="utf-8" >
+		
+		
+			function ptweet(read)
+			{
+			var tdata='';
+			for(i=0;i<5;i++)
+			{
+			data =read[i];
+			var id=data.id;
+			var text=data.text;
+			var created_time=data.created_at;
+			var screen_name=data.user.screen_name;
+			var image=data.user.profile_image_url;
+			var source=data.source;
+			tdata+="<div style='float:left; width:100%; margin-top:2px; border-bottom:solid 1px black; vertical-align:center;'><span class='status' id='"+id+"'><img src="+image+" class='twitter_image'/><a href='http://twitter.com/"+screen_name+"'>"+screen_name+"<span id='txt'>"+text+"<span class='twitter_posted_at'><span class='timeago' title='"+created_time+"'></span><i> </i></span></span></span></div></a>";
+			 
+			}
+		//	document.getElementById("tweets").innerHTML=tdata;
+			}
+			
+			function init() 
+			{
+				document.addEventListener("touchmove", preventBehavior, false);
+			    document.addEventListener("deviceready", onDeviceReady, false);
+				document.ontouchmove = function(e) 
+				{
+				}
+				if(screen.height == "800")
+				{
+				}
+				else{
+					document.getElementById('button1').style.height='100%';
+					document.getElementById('button2').style.height='100%';
+					document.getElementById('button3').style.height='100%';
+					document.getElementById('button4').style.height='100%';
+					document.getElementById('button5').style.height='100%';
+					document.getElementById('button6').style.height='100%';
+					document.getElementById('button7').style.height='100%';
+				}
+				document.getElementById('options').style.display='none';
+				document.getElementById('photoview').style.display='none';
+			}
+			function onDeviceReady() 
+			{
+				document.addEventListener("backbutton", onBackKeyDown, false);
+				document.addEventListener("menubutton", onMenuKeyDown, false);
+
+    		}
+    		
+    		function onBackKeyDown() 
+    		{
+    			
+    			if(document.getElementById('menu').style.display=='block')
+    			{ 
+    				navigator.app.exitApp(); 
+    				return;
+    			}
+    			if(document.getElementById('options').style.display == 'block')
+    			{
+    				document.getElementById('webpagina').style.display='block';
+    				document.getElementById('options').style.display='none';
+					document.getElementById('photoview').style.display='none';
+					return;
+    			}
+    			if(document.getElementById('login').style.display == 'block')
+    			{
+    				document.getElementById('webpagina').style.display='block';
+    				document.getElementById('options').style.display='none';
+					document.getElementById('photoview').style.display='none';
+					return;
+    			}
+    			if(document.getElementById('photoview').style.display == 'block')
+    			{
+    				document.getElementById('webpagina').style.display='block';
+    				document.getElementById('options').style.display='none';
+					document.getElementById('photoview').style.display='none';
+					return;
+    			}
+    			
+    			
+
+    		}
+    		function onMenuKeyDown() 
+    		{
+    			if(document.getElementById('options').style.display == 'block')
+    			{
+    				document.getElementById('webpagina').style.display='block';
+    				document.getElementById('options').style.display='none';
+					document.getElementById('photoview').style.display='none';
+    			}
+    			else{
+    				document.getElementById('webpagina').style.display='block';
+    				document.getElementById('options').style.display='block';
+					document.getElementById('photoview').style.display='none';
+    			}
+    		}
+			
+			delete init;
+	</script>
+    </head>
+		
+    <body onload="init()">
+    	 
+		<div id="mainWebsite">
+			<div id="titlebar">
+				<span id="optionsbutton">
+					<a href="#"  onclick="openOptions()"><img src="images/options.png" height="80%" width="30px"></a>
+				</span>
+				<span id="title">
+					<a href="#" onclick="loadIntern('http://www.seneca.nl/')">Seneca CMS</a>
+				</span>
+				<span id="profilebutton">
+					<a href="#"  onclick="openProfile()"><img src="images/ManagerProfile.png" height="80%" width="30px"></a>
+				</span>
+			</div>
+				<div id="photoview">
+    				<div id="camera">
+
+    					<button class="camera-control" onclick="capturePhoto();">Capture Photo</button>
+     					<button class="camera-control" onclick="backCamera();">Back</button>
+    					<div style="text-align:center;">
+        					<img id="cameraPic" src="" style="width:100%;height:100%;">
+    					</div>
+
+					</div>
+				</div>
+					
+				<div id="options">
+						<a href="#" onclick="saveURL();"><div id="button6">Set startpage</div></a>
+						<a href"#" onclick ="getLocation()"><div id="button7">Get location</div></a>
+						<img src="" id="locationPhoto" name="locationPhoto">
+				</div>
+				
+			
+    			
+					<div id="webpagina">
+						<iframe src="http://ixpdev.smartsite.seneca.intern/mgr/managerlogin" onload="pageLoaded();" id="loginFrame" height="98%" width="100%">No frame support</iframe>
+					</div>
+					
+				<div id="menu">
+					<a href="#" onclick="loadStartpage();"><span id="button1">go to startpage</span></a>
+					<a href="#" onclick="addItem();"><span id="button2">Add item</span></a>
+					<a href="#" onclick="editItem();"><span id="button5">Edit item</span></a>
+					<a href="#" onclick="loadExtern();"><span id="button3">Load extern</span></a>		
+					<a href="#" onclick="showPhotoView();"><span id="button4">Upload Photo</span></a>
+				<!--	<span id="tweets">Loadin</span>-->
+				</div> 
+
+				
+		</div>
+    </body>
+    
+	<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=Senecabv&count=15&callback=ptweet"></script>
+
+    
+</html>

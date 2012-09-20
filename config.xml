@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "com.amohell.TestforCMS"
+        version = "2.0.0">
+
+<name>TestingCMSIframe</name>
+
+<preference name="android-minSdkVersion" value="4" />
+<preference name="android-maxSdkVersion" value="11" />
+<preference name="orientation" value="landscape" />
+<preference name="fullscreen" value="true" />
+
+<access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+<access origin="http://ixpdev.smartsite.seneca.intern/mgr/manager" ></access>
+<access origin="http://ixpdev.smartsite.seneca.intern" ></access>
+<access origin="http://ixpdev.smartsite.seneca.intern/mgr/manager*" ></access>
+<access origin="http://ixpdev.smartsite.seneca.intern*" ></access>
+<access origin="*.com" ></access>	
+<access origin="*.nl" ></access>
+<access origin="*" ></access>
+<access origin="http://ixpdev*" ></access>
+<access origin="http://ixpdev/" ></access>
+<access origin="http://ixpdev" ></access>
+<access origin="http://www.twitter.com" ></access>
+
+<gap:plugin name="ChildBrowser" version="~3" /> <!-- for Cordova (1.9.0+) -->
+
+<feature name="http://api.phonegap.com/1.0/network" />
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/notification"/>
+<feature name="http://api.phonegap.com/1.0/contacts"/>
+<feature name="http://api.phonegap.com/1.0/battery"/>
+
+
+<preference name="phonegap-version" value="2.0.0" />
+</widget>
