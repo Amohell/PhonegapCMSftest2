@@ -10,19 +10,22 @@
     		 window.localStorage.setItem("url", localStorage['startpage']);
             
         }
+        var url = window.localStorage.getItem("url");
+        document.getElementById("webpagina").innerHTML="<iframe src='"+url+"' id='webFrame' height='98%' width='100%'>No frame support</iframe>"
+        
        // var url = window.localStorage.getItem("url");
 		//window.plugins.childBrowser.showWebPage("file:///android_asset/www/Loading/Loading.html",
         //{ showLocationBar: false }); 
   		  //    alert(window.localStorage.getItem("url"));
-  		  var myframe = document.getElementById("webFrame");
-   		if(myframe !== null)
-		{
-  		  if(myframe.src){
-   		  myframe.src = "Loading/Loading.html"; }
-   		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
-          myframe.contentWindow.location = "Loading.html"; }
-    		else{ myframe.setAttribute('src', "Loading/Loading.html"); }
-		}		
+  		 // var myframe = document.getElementById("webFrame");
+   		//if(myframe !== null)
+		//{
+  		//  if(myframe.src){
+   		//  myframe.src = "Loading/Loading.html"; }
+   		//  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
+       //   myframe.contentWindow.location = "Loading.html"; }
+    	//	else{ myframe.setAttribute('src', "Loading/Loading.html"); }
+		//}		
   	//	  window.frames['webFrame'].document.location.href = "http://google.nl";
 
 	}
@@ -334,8 +337,8 @@ function redirect ()
 }
 function go_now ()   
 { 
-	var url = window.localStorage.getItem("url");
-	 window.location = url;
+//	var url = window.localStorage.getItem("url");
+//	document.getElementById("webFrame").src = url;
 //	var myframe = document.getElementById("webFrame");
   // 		if(myframe !== null)
 //		{
