@@ -14,7 +14,17 @@
 		//window.plugins.childBrowser.showWebPage("file:///android_asset/www/Loading/Loading.html",
         //{ showLocationBar: false }); 
   		  //    alert(window.localStorage.getItem("url"));
-  		  document.getElementById('loginFrame').src = "file:///android_asset/www/Loading/Loading.html";
+  		  var myframe = document.getElementById("webFrame");
+   		if(myframe !== null)
+		{
+  		  if(myframe.src){
+   		  myframe.src = "file:///android_asset/www/Loading/Loading.html"; }
+   		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
+          myframe.contentWindow.location = "file:///android_asset/www/Loading/Loading.html"; }
+    		else{ myframe.setAttribute('src', "file:///android_asset/www/Loading/Loading.html"); }
+		}		
+  	//	  window.frames['webFrame'].document.location.href = "http://google.nl";
+
 	}
        //
     
@@ -307,19 +317,7 @@ function fail(error) {
             alert("An error has occurred: Code = " + error.code); 
         }
         
-        
-function pageLoaded()
-{	
-	if(getSrc(document.getElementById('loginFrame')) == "http://ixpdev.smartsite.seneca.intern/mgr/managerlogin")
-	{
-		
-	}
-	else{
-		document.getElementById('menu').style.display='none';
-		document.getElementById('photoview').style.display='none';
-		document.getElementById('options').style.display='block';
-	}
-}
+       
 function getSrc(obj) 
 {
 	return obj.src;
@@ -339,7 +337,15 @@ function go_now ()
 	document.getElementById('nimbleLoader').style.display="none";
 	document.getElementById('checkbox').style.display="block;";
 	var url = window.localStorage.getItem("url");
-	document.getElementById('loginFrame').src = url;
+	var myframe = document.getElementById("webFrame");
+   		if(myframe !== null)
+		{
+  		  if(myframe.src){
+   		  myframe.src = url; }
+   		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
+          myframe.contentWindow.location = url; }
+    		else{ myframe.setAttribute('src', url); }
+		}	
 
 	//	window.plugins.childBrowser.showWebPage(url,
    //   { showLocationBar: false }); 

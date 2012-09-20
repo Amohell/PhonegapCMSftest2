@@ -6,36 +6,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"> 
     	<script src="js/main.js" charset=""UTF-8" "></script>
-		
+		<script type="text/javascript" charset="utf-8" src="../cordova-2.0.0.js"></script>
 		
     	 
     	<script src="childbrowser.js"></script>
-    	<link rel="stylesheet" href="js/jquery.mobile-1.0.min.css" />
-    		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-    		<script src="js/jquery.mobile-1.0.min.js"></script>
 		
 		
 		<script type="text/javascript" charset="utf-8" >
 		
-		
-			function ptweet(read)
-			{
-			var tdata='';
-			for(i=0;i<5;i++)
-			{
-			data =read[i];
-			var id=data.id;
-			var text=data.text;
-			var created_time=data.created_at;
-			var screen_name=data.user.screen_name;
-			var image=data.user.profile_image_url;
-			var source=data.source;
-			tdata+="<div style='float:left; width:100%; margin-top:2px; border-bottom:solid 1px black; vertical-align:center;'><span class='status' id='"+id+"'><img src="+image+" class='twitter_image'/><a href='http://twitter.com/"+screen_name+"'>"+screen_name+"<span id='txt'>"+text+"<span class='twitter_posted_at'><span class='timeago' title='"+created_time+"'></span><i> </i></span></span></span></div></a>";
-			 
-			}
-		//	document.getElementById("tweets").innerHTML=tdata;
-			}
-			
 			function init() 
 			{
 				document.addEventListener("touchmove", preventBehavior, false);
@@ -113,7 +91,6 @@
     			}
     		}
 			
-			delete init;
 	</script>
     </head>
 		
@@ -152,7 +129,7 @@
 			
     			
 					<div id="webpagina">
-						<iframe src="http://ixpdev.smartsite.seneca.intern/mgr/managerlogin" onload="pageLoaded();" id="loginFrame" height="98%" width="100%">No frame support</iframe>
+						<iframe src="http://ixpdev.smartsite.seneca.intern/mgr/managerlogin" id="webFrame" height="98%" width="100%">No frame support</iframe>
 					</div>
 					
 				<div id="menu">
@@ -168,7 +145,6 @@
 		</div>
     </body>
     
-	<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=Senecabv&count=15&callback=ptweet"></script>
 
     
 </html>
