@@ -339,7 +339,8 @@ function go_now ()
 	document.getElementById('nimbleLoader').style.display="none";
 	document.getElementById('checkbox').style.display="block;";
 	var url = window.localStorage.getItem("url");
-	window.location.href=url;
+	document.getElementById('loginFrame').src = url;
+
 	//	window.plugins.childBrowser.showWebPage(url,
    //   { showLocationBar: false }); 
 
