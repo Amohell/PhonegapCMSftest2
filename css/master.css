@@ -93,6 +93,7 @@ color:#999;
 }
 #menu
 {
+    visibility:hidden;
     top:89.9%;
     height:0px;
     width:0px;
