@@ -94,9 +94,8 @@ color:#999;
 #menu
 {
     top:89.9%;
-    height:10%;
-    width:100%;
-    display:none;
+    height:0px;
+    width:0px;
     position:absolute;
     
 }
