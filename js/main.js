@@ -5,13 +5,14 @@
         }
     function showPage(sort) 
     {
+    	showMenu();
     	if(sort == "start")
     	{
     		 window.localStorage.setItem("url", localStorage['startpage']);
             
         }
         var url = window.localStorage.getItem("url");
-        document.getElementById("webpagina").innerHTML="<iframe src='"+url+"' id='webFrame' height='98%' width='100%'>No frame support</iframe>"
+        document.getElementById("webpagina").innerHTML="<iframe src='"+url+"' id='webFrame' height='99%' width='100%'  onclick='hideMenuStart();' onload='hideMenuStart();'>No frame support</iframe>"
         
        // var url = window.localStorage.getItem("url");
 		//window.plugins.childBrowser.showWebPage("file:///android_asset/www/Loading/Loading.html",
@@ -26,7 +27,7 @@
        //   myframe.contentWindow.location = "Loading.html"; }
     	//	else{ myframe.setAttribute('src', "Loading/Loading.html"); }
 		//}		
-  	//	  window.frames['webFrame'].document.location.href = "http://google.nl";
+  	//	  window.frames['webFrame'].document.location.href = "http://google.nl";	
 
 	}
        //
@@ -241,11 +242,20 @@ function toggleCompass() {
 
 function showPhotoView()
 {
+	if(document.getElementById('photoview').style.display == 'block')
+	{
+		document.getElementById('webpagina').style.display='block';
+		document.getElementById('photoview').style.display='none';
+		document.getElementById('options').style.display='none';
+	}
+	else{
+		
 	document.getElementById('webpagina').style.display='none';
 	document.getElementById('photoview').style.display='block';
 	document.getElementById('options').style.display='none';
+	}
 }
-function backCamera()
+function showMenu()
 {
 	document.getElementById('webpagina').style.display='block';
 	document.getElementById('photoview').style.display='none';
@@ -324,42 +334,4 @@ function fail(error) {
 function getSrc(obj) 
 {
 	return obj.src;
-}
-function initPage()
-{
-	document.getElementById('btnCount').click();
-	redirect();
-
-	}
-function redirect () 
-{ 
-	setTimeout("go_now()",400); 
-}
-function go_now ()   
-{ 
-//	var url = window.localStorage.getItem("url");
-//	document.getElementById("webFrame").src = url;
-//	var myframe = document.getElementById("webFrame");
-  // 		if(myframe !== null)
-//		{
-  //		  if(myframe.src){
-   //		  myframe.src = "http://tweakers.net;" }
-   //		  else if(myframe.contentWindow !== null && myframe.contentWindow.location !== null){
-   //       myframe.contentWindow.location = "http://tweakers.net"; }
-   // 		else{ myframe.setAttribute("http://tweakers.net", url); }
-	//	}	
-
-	//	window.plugins.childBrowser.showWebPage(url,
-   //   { showLocationBar: false }); 
-
-}
-function noStay()
-{
-	var url = window.localStorage.getItem("url");
-		window.plugins.childBrowser.showWebPage(url,
-        { showLocationBar: false }); 
-}
-function yesBack()
-{
-	window.location.href="file:///android_asset/www/index.html";
 }

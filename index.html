@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"> 
     	<script src="js/main.js" charset=""UTF-8" "></script>
-		<script type="text/javascript" charset="utf-8" src="../cordova-2.0.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
 		
     	 
     	<script src="childbrowser.js"></script>
@@ -30,8 +30,10 @@
 					document.getElementById('button3').style.height='100%';
 					document.getElementById('button4').style.height='100%';
 					document.getElementById('button5').style.height='100%';
+					document.getElementById('button7').style.height='100%';
 					document.getElementById('button6').style.height='16.66667%';
 					document.getElementById('button7').style.height='16.66667%';
+					document.getElementById('button8').style.height='100%';
 				}
 				document.getElementById('options').style.display='none';
 				document.getElementById('photoview').style.display='none';
@@ -46,7 +48,7 @@
     		function onBackKeyDown() 
     		{
     			
-    			if(document.getElementById('menu').style.display=='block')
+    			if(document.getElementById('webpagina').style.display=='block')
     			{ 
     				navigator.app.exitApp(); 
     				return;
@@ -78,18 +80,40 @@
     		}
     		function onMenuKeyDown() 
     		{
-    			if(document.getElementById('options').style.display == 'block')
+    			if(document.getElementById('menu').style.display == 'none')
     			{
-    				document.getElementById('webpagina').style.display='block';
-    				document.getElementById('options').style.display='none';
-					document.getElementById('photoview').style.display='none';
+    				document.getElementById('menuButton').style.display = 'none';
+    				document.getElementById('menu').style.display = 'block';
+    				document.getElementById('webpagina').style.height = '89.9%';
+    				document.getElementById('photoview').style.height='89.9%';
+    				document.getElementById('options').style.height='89.9%';
     			}
-    			else{
-    				document.getElementById('webpagina').style.display='block';
-    				document.getElementById('options').style.display='block';
-					document.getElementById('photoview').style.display='none';
+    			else
+    			{
+    				document.getElementById('menuButton').style.display = 'block';
+    				document.getElementById('menu').style.display = 'none';
+    				document.getElementById('webpagina').style.height = '98%';
+    				document.getElementById('photoview').style.height='98%';
+    				document.getElementById('options').style.height='98%%';
     			}
     		}
+    		function showMenuStart()
+    		{
+    			document.getElementById('menuButton').style.display = 'none';
+    			document.getElementById('menu').style.display = 'block';
+    			document.getElementById('webpagina').style.height = '89.9%';
+    			document.getElementById('photoview').style.height='89.9%';
+    			document.getElementById('options').style.height='89.9%';
+    		}
+    		function hideMenuStart()
+    		{
+    			document.getElementById('menuButton').style.display = 'block';
+    			document.getElementById('menu').style.display = 'none';
+    			document.getElementById('webpagina').style.height = '98%';
+    			document.getElementById('photoview').style.height='98%';
+    			document.getElementById('options').style.height='98%%';
+    		}
+    		
 			
 	</script>
     </head>
@@ -97,25 +121,14 @@
     <body onload="init()">
     	 
 		<div id="mainWebsite">
-			<div id="titlebar">
-				<span id="optionsbutton">
-					<a href="#"  onfocus="openOptions()"><img src="images/options.png" height="80%" width="30px"></a>
-				</span>
-				<span id="title">
-					<a href="#" onclick="loadIntern('http://www.seneca.nl/')">Seneca CMS</a>
-				</span>
-				<span id="profilebutton">
-					<a href="#"  onclick="openProfile()"><img src="images/ManagerProfile.png" height="80%" width="30px"></a>
-				</span>
-			</div>
-				<div id="photoview">
-    				<div id="camera">
+			<div id="photoview">
+    			<div id="camera">
 
-    					<button class="camera-control" onclick="capturePhoto();">Capture Photo</button>
-     					<button class="camera-control" onclick="backCamera();">Back</button>
-    					<div style="text-align:center;">
-        					<img id="cameraPic" src="" style="width:100%;height:100%;">
-    					</div>
+    				<button class="camera-control" onclick="capturePhoto();">Capture Photo</button>
+     				<button class="camera-control" onclick="showMenu();">Back</button>
+    				<div style="text-align:center;">
+        			<img id="cameraPic" src="" style="width:100%;height:100%;">
+    				</div>
 
 					</div>
 				</div>
@@ -128,16 +141,19 @@
 				
 			
     			
-					<div id="webpagina">
-						
-					</div>
-					
+				<div id="webpagina"	>
+					<iframe src='http://ixpdev.smartsite.seneca.intern/mgr' id='webFrame' height='99%' width='100%' onclick="hideMenuStart();" onload="hideMenuStart();">No frame support</iframe>	
+				</div>
+				<div id="menuButton">
+					<a href="#" onclick="showMenuStart()"><img src="images/arrowup.png" height='100%'></a>
+				</div>
 				<div id="menu">
 					<a href="#" onclick="loadStartpage();"><span id="button1">go to startpage</span></a>
 					<a href="#" onclick="addItem();"><span id="button2">Add item</span></a>
 					<a href="#" onclick="editItem();"><span id="button5">Edit item</span></a>
 					<a href="#" onclick="loadExtern();"><span id="button3">Pqublish item</span></a>		
 					<a href="#" onclick="showPhotoView();"><span id="button4">Upload Photo</span></a>
+					<a href="#" onclick="openOptions();"><span id="button8">Options</span></a>
 				<!--	<span id="tweets">Loadin</span>-->
 				</div> 
 

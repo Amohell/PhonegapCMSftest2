@@ -61,24 +61,6 @@ color:#999;
   }
   }
 
-#titlebar
-{
-    height:5%;
-    width:100%;  
-    float:left;
-    margin-bottom:2.1%;
-    background-color:#006582;
-    text-align:center;
-    
-}
-#bottombar{
-    height:5%;
-    width:100%;  
-    float:left;
-    background-color:#006582;
-    text-align:center;
-    border-top:1px black solid;
-}
 #tweets
 {
     height:10%;
@@ -97,24 +79,26 @@ color:#999;
 {
     border-bottom:black solid 1px;
     float:left;
-    height:50px;
-    width:20%;
+    height:80px;
+    width:16.6666667%;
     color:#006582;
     text-align: center;
     background-color:white;
 }
 
-#button1:hover, #button2:hover, #button3:hover, #button4:hover, #button5:hover, #button6:hover, #button7:hover, #button8:hover, #button4:hover
+#button1:hover, #button2:hover, #button3:hover, #button4:hover, #button5:hover, #button6:hover, #button7:hover, #button8:hover
 {
     background-color:red;
     color:white;
 }
 #menu
 {
-    float:left;
+    top:89.9%;
     height:10%;
     width:100%;
-    display:block;
+    display:none;
+    position:absolute;
+    
 }
 a, a:hover, a:active, a:visited { color: white; text-decoration:none;}
 
@@ -126,7 +110,7 @@ a, a:hover, a:active, a:visited { color: white; text-decoration:none;}
     height:100%;
     }
 #photoview{
-    height:80.6%;
+    height:98%;
     display:none;
     float:left;
     width:100%;
@@ -165,16 +149,8 @@ button.camera-control:hover {
     display:none;
 }    
  
-#optionsbutton{
-    float:left;
-    height:120%;
-}
-#profilebutton{
-    float:right;
-    height:120%;
-}
 #options{
-    height:90%;
+    height:98%;
     display:none;
     float:left;
     width:100%;
@@ -189,8 +165,15 @@ button.camera-control:hover {
 #webpagina
 {
     float:left;
-    height:80.6%;
+    height:98%;
     width:100%;
     display:block;
+    overflow: hidden;
+}
+#menuButton
+{
+    text-align: center;
+    width:100%;
+    height:1%;
 }
 
